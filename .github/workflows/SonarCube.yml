@@ -1,16 +1,46 @@
-name: Run SonarQube
+name: CI/CD Pipeline with SonarQube
 
-on: push
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  build:
+  build-and-analyze:
+    name: Build, Test, and Analyze
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v3
-    - name: Setup Node.js environment
-      uses: actions/setup-node@v4.0.3
-    - name: Build Sonar Scan
-      run:  npm -B sonar:sonar -Dsonar.projectKey=riddler-pr -Dsonar.organization=Riddler-pr -Dsonar.host.url=https://sonarcloud.io -Dsonar.token=$SONAR_TOKEN
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '14'  # Specify the Node.js version you need
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run OWASP Juice Shop tests
+      run: npm test
+      # Adjust this command based on your test framework and setup
+
+    - name: Set up SonarQube Scanner
+      uses: sonarsource/sonarcloud-github-action@v2
+      with:
+        sonar-token: ${{ secrets.SONARQUBE_TOKEN }}
+
+    - name: Run SonarQube analysis
+      run: |
+        npm install -g sonar-scanner
+        sonar-scanner \
+          -Dsonar.projectKey=your-project-key \
+          -Dsonar.sources=. \
+          -Dsonar.host.url=https://your-sonarqube-server \
+          -Dsonar.login=${{ secrets.SONARQUBE_TOKEN }}
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        SONARQUBE_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}
