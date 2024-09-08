@@ -1,4 +1,4 @@
-name: Run SonarQube
+name: Run SonarQube demo
 
 on: push
 
