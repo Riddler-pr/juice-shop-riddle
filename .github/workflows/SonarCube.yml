@@ -1,4 +1,4 @@
-name: CI/CD Pipeline with SonarQube
+name: SonarQube Implementation
 
 on:
   push:
