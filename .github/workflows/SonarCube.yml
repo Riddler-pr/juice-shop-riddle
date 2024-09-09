@@ -20,14 +20,13 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '14'  # Specify the Node.js version you need
+        node-version: '15'
 
     - name: Install dependencies
       run: npm install
 
     - name: Run OWASP Juice Shop test
       run: npm test
-      # Adjust this command based on your test framework and setup
 
     - name: Set up SonarQube Scanner
       uses: sonarsource/sonarcloud-github-action@v2
