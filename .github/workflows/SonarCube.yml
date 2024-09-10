@@ -1,4 +1,4 @@
-name: SonarQube Implementation
+name: SonarQube Implementation with Github Actions
 
 on:
   push:
@@ -25,7 +25,7 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Run OWASP Juice Shop test
+    - name: Run OWASP Juice Shop tests
       run: npm test
 
     - name: Set up SonarQube Scanner
