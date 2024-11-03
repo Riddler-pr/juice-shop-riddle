@@ -3,10 +3,10 @@ name: SonarQube Implementation with Github Actionss
 on:
   push:
     branches:
-      - main
+      - Newbranch
   pull_request:
     branches:
-      - main
+      - Newbranch
 
 jobs:
   build-and-analyze:
