@@ -21,3 +21,13 @@ jobs:
           target: 'https://www.zaproxy.org/'
           rules_file_name: '.zap/rules.tsv'
           cmd_options: '-a'
+
+      - name: Sleep for a bit
+        uses: jakejarvis/wait-action@master
+        with:
+          time: '10s'
+      - name: "Upload Report"
+        uses: actions/upload-artifact@v1
+        with:
+          name: zap-scan-report
+          path: ./tests/zap-report.json
