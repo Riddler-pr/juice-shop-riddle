@@ -27,7 +27,7 @@ jobs:
         with:
           time: '10s'
       - name: "Upload Report"
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v4
         with:
           name: zap-scan-report
           path: ./tests/zap-report.json
