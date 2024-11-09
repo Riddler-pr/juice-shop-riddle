@@ -28,6 +28,9 @@ jobs:
           # Specify your ZAP scan options (default is a basic scan)
           cmd_options: "-t https://juice-shop.herokuapp.com/#/ -r report.html"
 
+      - name: List files in the current directory
+        run: ls -R
+
       # Step 4: Upload the ZAP scan report
       - name: Upload ZAP report
         uses: actions/upload-artifact@v3
