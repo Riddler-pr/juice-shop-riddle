@@ -30,7 +30,7 @@ jobs:
 
       # Step 4: Upload the ZAP scan report
       - name: Upload ZAP report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: ZAP Report
           path: report.html
