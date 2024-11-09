@@ -26,7 +26,7 @@ jobs:
           # Replace the URL with the URL of the app to be scanned
           target: "https://juice-shop.herokuapp.com/#/" 
           # Specify your ZAP scan options (default is a basic scan)
-          cmd_options: "-t http://localhost:8080 -r report.html"
+          cmd_options: "-t https://juice-shop.herokuapp.com/#/ -r report.html"
 
       # Step 4: Upload the ZAP scan report
       - name: Upload ZAP report
