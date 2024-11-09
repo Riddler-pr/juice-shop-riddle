@@ -23,7 +23,7 @@ jobs:
 
       # Step 3: Run OWASP ZAP scan
       - name: Run OWASP ZAP Baseline Scan
-        uses: zaproxy/action-baseline@v0.13.0
+        uses: zaproxy/action-api-scan@v0.8.0
         with:
           # Replace the URL with the URL of the app to be scanned
           target: "http://altoro.testfire.net/" 
