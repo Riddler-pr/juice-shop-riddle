@@ -18,6 +18,8 @@ jobs:
       # Example of starting a Docker container for the app:
       # - name: Start the application
       #   run: docker-compose up -d
+      - name: List files in the current directory
+        run: ls -R
 
       # Step 3: Run OWASP ZAP scan
       - name: Run OWASP ZAP Baseline Scan
@@ -28,8 +30,7 @@ jobs:
           # Specify your ZAP scan options (default is a basic scan)
           cmd_options: "-t https://juice-shop.herokuapp.com/#/ -r report.html"
 
-      - name: List files in the current directory
-        run: ls -R
+      
 
       # Step 4: Upload the ZAP scan report
       - name: Upload ZAP report
