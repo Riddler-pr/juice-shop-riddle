@@ -37,6 +37,6 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: ZAP Report
-          path: ./test/report.html
+          path: /home/runner/work/juice-shop-riddle/juice-shop-riddle/report_html.html
 
 
