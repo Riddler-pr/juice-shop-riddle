@@ -1,4 +1,4 @@
-name: ZAP-Scan 
+name: ZAP-Scan Demo
 
 on:
   push: 
@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out the code
+      - name: Check out code
         uses: actions/checkout@v2
 
       - name: List files in the current directory
