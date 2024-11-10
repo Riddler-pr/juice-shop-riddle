@@ -9,30 +9,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Check out the code from the repository
       - name: Check out the code
         uses: actions/checkout@v2
 
-      # Step 2: Start the target application if necessary
-      # (Optional) This step depends on whether you need to deploy your application before scanning.
-      # Example of starting a Docker container for the app:
-      # - name: Start the application
-      #   run: docker-compose up -d
       - name: List files in the current directory
         run: ls -R
 
-      # Step 3: Run OWASP ZAP scan
       - name: Run OWASP ZAP Baseline Scan
         uses: zaproxy/action-baseline@v0.13.0
         with:
-          # Replace the URL with the URL of the app to be scanned
           target: "https://juice-shop.herokuapp.com/#/" 
-          # Specify your ZAP scan options (default is a basic scan)
           cmd_options: "-t https://juice-shop.herokuapp.com/#/ -r report.html"
 
-      
-
-      # Step 4: Upload the ZAP scan report
       - name: Upload ZAP report
         uses: actions/upload-artifact@v3
         with:
