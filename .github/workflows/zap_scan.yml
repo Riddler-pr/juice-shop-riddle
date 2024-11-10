@@ -26,9 +26,9 @@ jobs:
         uses: zaproxy/action-baseline@v0.13.0
         with:
           # Replace the URL with the URL of the app to be scanned
-          target: "http://altoro.testfire.net/" 
+          target: "https://juice-shop.herokuapp.com/#/" 
           # Specify your ZAP scan options (default is a basic scan)
-          cmd_options: "-t http://altoro.testfire.net/ -r /home/runner/work/juice-shop-riddle/juice-shop-riddle/report_html.html"
+          cmd_options: "-t https://juice-shop.herokuapp.com/#/ -r /home/runner/work/juice-shop-riddle/juice-shop-riddle/report_html.html"
 
       
 
