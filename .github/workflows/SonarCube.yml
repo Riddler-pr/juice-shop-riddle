@@ -1,4 +1,4 @@
-name: "SonarQube Implementation with Github Actions"
+name: "SonarQube Implementation with Github Actions for dissertation"
 
 on:
   push:
