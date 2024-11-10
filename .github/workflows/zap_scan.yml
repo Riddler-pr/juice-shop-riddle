@@ -28,15 +28,15 @@ jobs:
           # Replace the URL with the URL of the app to be scanned
           target: "https://juice-shop.herokuapp.com/#/" 
           # Specify your ZAP scan options (default is a basic scan)
-          cmd_options: "-t https://juice-shop.herokuapp.com/#/ -r /home/runner/work/juice-shop-riddle/juice-shop-riddle/report_html.html"
+          cmd_options: "-t https://juice-shop.herokuapp.com/#/ -r report.html"
 
       
 
       # Step 4: Upload the ZAP scan report
       - name: Upload ZAP report
-        uses: actions/upload-artifact@v4.4.3
+        uses: actions/upload-artifact@v3
         with:
           name: ZAP Report
-          path: /home/runner/work/juice-shop-riddle/juice-shop-riddle/report_html.html
+          path: report.html
 
 
