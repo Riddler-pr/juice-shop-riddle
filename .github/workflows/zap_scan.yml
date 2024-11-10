@@ -1,4 +1,4 @@
-name: ZAP-Scan Demo
+name: ZAP-Scan Demo for dissertation
 
 on:
   push: 
