@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - Newbranch
-  pull_request:
-    branches:
-      - Newbranch
 
 jobs:
   build-and-analyze:
@@ -32,3 +29,14 @@ jobs:
       uses: sonarsource/sonarcloud-github-action@v2
       with:
         sonar-token: ${{ secrets.SONARQUBE_TOKEN }}
+
+    - name: Run SonarQube analysis
+      run: |
+        npm install -g sonar-scanner
+        sonar-scanner \
+          -Dsonar.projectKey=your-project-key \
+          -Dsonar.sources=. \
+          -Dsonar.host.url=https://your-sonarqube-server \
+          -Dsonar.login=${{ secrets.SONARQUBE_TOKEN }}
+      env:
+        SONARQUBE_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}
