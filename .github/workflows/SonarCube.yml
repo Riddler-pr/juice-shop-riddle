@@ -14,10 +14,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
+    - name: Checkout Repo
       uses: actions/checkout@v3
 
-    - name: Set up Node.js
+    - name: Set up Node
       uses: actions/setup-node@v3
       with:
         node-version: 'latest'
@@ -29,7 +29,7 @@ jobs:
       run: npm test
 
     - name: Set up SonarQube Scanner
-      uses: sonarsource/sonarcloud-github-action@v2
+      uses: sonarsource/sonarcloud-github-action@v3
       with:
         sonar-token: ${{ secrets.SONARQUBE_TOKEN }}
 
